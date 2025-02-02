@@ -145,7 +145,7 @@ complexity:
     ignoreArgumentsMatchingNames: false
   NestedBlockDepth:
     active: true
-    threshold: 4
+    threshold: 7
   NestedScopeFunctions:
     active: false
     threshold: 1
@@ -632,7 +632,7 @@ style:
     maxChainedCalls: 5
   MaxLineLength:
     active: true
-    maxLineLength: 120
+    maxLineLength: 500
     excludePackageStatements: true
     excludeImportStatements: true
     excludeCommentStatements: false

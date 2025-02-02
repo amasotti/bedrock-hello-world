@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.shadow)
     alias(libs.plugins.ktfmt)
     alias(libs.plugins.detekt)
+    alias(libs.plugins.serialization)
     application
 }
 
@@ -33,6 +34,8 @@ dependencies {
     implementation(libs.kotlin.stdlib)
     implementation(libs.aws.bedrock.client)
     implementation(libs.aws.bedrock.runtime)
+
+    implementation(libs.kotlin.serialization)
 
     // Logging
     implementation(libs.logging)
