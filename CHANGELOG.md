@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file (created with git cliff).
 
+## [0.1.1] - 2025-02-02
+
+[Compare with last version](https://github.com/amasotti/bedrock-hello-world/compare/58e1c5c07091be167b7b497d2e4cdcb91e3ff750..ca4ff30449d5a533375b3d0e9c034f4deb905b2d)
+### 🐛 Bug Fixes
+
+- Disable tests in pipeline (needs secrets for AWS) ([ca4ff30](https://github.com/amasotti/bedrock-hello-world/commit/ca4ff30449d5a533375b3d0e9c034f4deb905b2d)) - by _Antonio Masotti_
+
 ## [0.1.0] - 2025-02-02
 
 [Compare with last version](https://github.com/amasotti/bedrock-hello-world/compare/027502e9b376048ee57e3cc47f1bd3794cfcc0f2..58e1c5c07091be167b7b497d2e4cdcb91e3ff750)
