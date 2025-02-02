@@ -31,6 +31,7 @@ dependencies {
 
     // Core dependencies
     implementation(libs.kotlin.stdlib)
+    implementation(libs.aws.bedrock.client)
     implementation(libs.aws.bedrock.runtime)
 
     // Logging
