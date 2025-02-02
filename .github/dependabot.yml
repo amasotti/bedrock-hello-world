@@ -1,0 +1,18 @@
+version: 2
+updates:
+  # Maintain dependencies for backend
+  - package-ecosystem: "gradle"
+    directory: "/"
+    target-branch: "main"
+    groups:
+      main-dependencies:
+        applies-to: version-updates
+        update-types:
+          - "minor"
+          - "patch"
+        patterns:
+          - "*"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "chore(deps):"

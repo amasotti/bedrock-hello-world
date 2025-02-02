@@ -1,0 +1,15 @@
+[versions]
+kotlin = "2.1.10"
+detekt = "1.23.7"
+
+[libraries]
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+logging = { module = "io.github.oshai:kotlin-logging", version = "7.0.3" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.16" }
+
+
+[plugins]
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+ktfmt = { id = "com.ncorti.ktfmt.gradle", version = "0.21.0" }
+shadow = { id = "com.gradleup.shadow", version = "9.0.0-beta4" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt"}
