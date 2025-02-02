@@ -26,8 +26,12 @@ java {
 
 // Dependencies configuration grouped by purpose
 dependencies {
+    // SBOM dependencies
+    implementation(platform(libs.aws.bom))
+
     // Core dependencies
     implementation(libs.kotlin.stdlib)
+    implementation(libs.aws.bedrock.runtime)
 
     // Logging
     implementation(libs.logging)
