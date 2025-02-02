@@ -14,5 +14,5 @@ aws-bedrock-runtime = { module = "aws.sdk.kotlin:bedrockruntime", version.ref = 
 [plugins]
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ktfmt = { id = "com.ncorti.ktfmt.gradle", version = "0.21.0" }
-shadow = { id = "com.gradleup.shadow", version = "9.0.0-beta4" }
+shadow = { id = "com.gradleup.shadow", version = "9.0.0-beta6" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt"}
