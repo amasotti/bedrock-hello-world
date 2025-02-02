@@ -1,6 +1,66 @@
-# AWS Bedrock Hello World
+# AWS Bedrock Kotlin Example
 
-This is a simple example of how to invoke a Bedrock model using the Kotlin SDK.
+A minimal proof of concept demonstrating how to use AWS Bedrock with the Kotlin SDK. The project shows two main functionalities:
+1. Listing available foundation models
+2. Generating text using the Titan model
+
+## Example
+
+Here's a sample prompt and response from the Titan model:
+
+**PROMPT:**
+
+```kotlin
+val prompt = """
+    Write a short, funny story about a time-traveling cat who
+    accidentally ends up in ancient Egypt at the time of Pharaohs.
+""".trimIndent()
+```
+
+**RESPONSE:**
+
+_using max_tokens=2000 and temperature=1.0_
+
+```text
+Once upon a time, a mischievous cat named Missy found a time machine in her backyard. She was curious about its workings and decided to give it a try. 
+As she stepped inside, she was surprised to find herself in the middle of an ancient Egyptian village. 
+Missy quickly realized that she had traveled back in time to the time of the Pharaohs and pyramids.
+Missy explored the village, marveling at the ancient structures and the way the people lived. 
+She even managed to sneak into the pyramids and explore their secrets. 
+But she soon realized that she had to get back to her own time before she was discovered.
+[... rest of the story ...]
+```
+
+### Input Format
+
+```json
+{
+  "inputText": "Your prompt here.",
+  "textGenerationConfig": {
+      "maxTokenCount": 2000,
+      "stopSequences": [],
+      "temperature": 1.0,
+      "topP": 0.7
+  }
+}
+```
+You may want to check the doc page [Inference Request Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) on the AWS Bedrock documentation for more information on the parameters.
+The structure of the input varies depending on the model you are using.
+
+### Output Format
+
+```json
+/* Body only */
+{
+  "inputTextTokenCount":7,
+  "results":[
+    {"tokenCount":9,
+      "outputText":"Generated answer.",
+      "completionReason":"FINISH"
+    }
+  ]
+}
+```
 
 
 ## Usage
