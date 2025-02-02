@@ -40,6 +40,8 @@ dependencies {
     // Logging
     implementation(libs.logging)
     implementation(libs.logback.classic)
+
+    testImplementation(libs.junit5)
 }
 
 application {
@@ -48,7 +50,18 @@ application {
 
 // Task configurations
 tasks {
-        // JAR configuration
+    withType<Test> {
+        useJUnitPlatform()
+        testLogging {
+            events("passed", "skipped", "failed")
+        }
+
+        // Define the test source set
+        testClassesDirs += files("build/classes/kotlin/test")
+        classpath += files("build/classes/kotlin/main", "build/resources/main")
+    }
+
+    // JAR configuration
     withType<Jar> {
         manifest {
             attributes["Main-Class"] = "com.tonihacks.MainKt"

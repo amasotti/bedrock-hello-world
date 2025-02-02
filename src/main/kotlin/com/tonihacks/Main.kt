@@ -9,7 +9,7 @@ suspend fun main() {
         )
 
     // Prompt for the model
-    //bedrock.listModels()
+    // bedrock.listModels()
 
     val prompt =
         """

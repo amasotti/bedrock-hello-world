@@ -2,6 +2,7 @@ package com.tonihacks
 
 import aws.sdk.kotlin.runtime.auth.credentials.ProfileCredentialsProvider
 import aws.sdk.kotlin.services.bedrock.BedrockClient
+import aws.sdk.kotlin.services.bedrock.model.FoundationModelSummary
 import aws.sdk.kotlin.services.bedrock.model.ListFoundationModelsRequest
 import aws.sdk.kotlin.services.bedrockruntime.BedrockRuntimeClient
 import aws.sdk.kotlin.services.bedrockruntime.model.InvokeModelRequest
@@ -16,31 +17,28 @@ class BedrockExample(
 ) {
     private val logger = KotlinLogging.logger {}
 
-    suspend fun listModels() =
+    suspend fun listModels(): List<FoundationModelSummary>? =
         BedrockClient {
                 region = awsRegion
                 credentialsProvider = ProfileCredentialsProvider(profileName = profile)
             }
             .use { client ->
-                client
-                    .listFoundationModels(ListFoundationModelsRequest {})
-                    .modelSummaries
-                    ?.forEach { model ->
-                        logger.info { "==========================================" }
-                        logger.info { " Model ID: ${model.modelId}" }
-                        logger.info { "------------------------------------------" }
-                        logger.info { " Name: ${model.modelName}" }
-                        logger.info { " Provider: ${model.providerName}" }
-                        logger.info { " Input modalities: ${model.inputModalities}" }
-                        logger.info { " Output modalities: ${model.outputModalities}" }
-                        logger.info {
-                            " Supported customizations: ${model.customizationsSupported}"
-                        }
-                        logger.info {
-                            " Supported inference types: ${model.inferenceTypesSupported}"
-                        }
-                        logger.info { "------------------------------------------\n" }
-                    }
+                val resp = client.listFoundationModels(ListFoundationModelsRequest {})
+
+                resp.modelSummaries?.forEach { model ->
+                    logger.info { "==========================================" }
+                    logger.info { " Model ID: ${model.modelId}" }
+                    logger.info { "------------------------------------------" }
+                    logger.info { " Name: ${model.modelName}" }
+                    logger.info { " Provider: ${model.providerName}" }
+                    logger.info { " Input modalities: ${model.inputModalities}" }
+                    logger.info { " Output modalities: ${model.outputModalities}" }
+                    logger.info { " Supported customizations: ${model.customizationsSupported}" }
+                    logger.info { " Supported inference types: ${model.inferenceTypesSupported}" }
+                    logger.info { "------------------------------------------\n" }
+                }
+
+                return resp.modelSummaries
             }
 
     suspend fun generateText(prompt: String) =
