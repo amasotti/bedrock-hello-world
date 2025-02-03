@@ -1,7 +1,7 @@
 [versions]
 kotlin = "2.1.10"
 detekt = "1.23.7"
-aws-sdk = "1.4.11"
+aws-sdk = "1.4.12"
 
 [libraries]
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
